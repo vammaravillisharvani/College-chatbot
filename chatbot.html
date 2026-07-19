@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat | {{ college_name }}</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="chat-body">
+
+<!-- =================== CHAT PAGE HEADER =================== -->
+<header class="chat-header">
+  <a href="{{ url_for('home') }}" class="back-link" aria-label="Back to home">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+
+  <div class="chat-header-info">
+    <div class="bot-avatar-circle small">🤖</div>
+    <div>
+      <p class="chat-header-name">{{ college_name }} Assistant</p>
+      <p class="chat-header-status"><span class="status-dot"></span>Online</p>
+    </div>
+  </div>
+
+  <div class="chat-header-actions">
+    <button id="clear-btn" class="icon-btn" title="Clear chat">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- =================== CHAT MESSAGE WINDOW =================== -->
+<main class="chat-window" id="chat-window">
+  <!-- Messages are added here dynamically by script.js -->
+</main>
+
+<!-- =================== SUGGESTED QUESTIONS =================== -->
+<div class="suggested-row" id="suggested-row">
+  {% for item in suggested_questions %}
+  <button class="suggested-chip" data-question="{{ item.text }}">{{ item.label }}</button>
+  {% endfor %}
+</div>
+
+<!-- =================== INPUT BOX (fixed at bottom) =================== -->
+<footer class="chat-input-bar">
+  <input type="text" id="user-input" placeholder="Type your question... e.g. What is the fee structure?" autocomplete="off">
+  <button id="send-btn" class="send-btn" title="Send message">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m3 20 18-8L3 4l0 7 12 1-12 1z" fill="currentColor"/></svg>
+  </button>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

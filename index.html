@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ college_name }} | Enquiry Chatbot</title>
+
+<!-- Google Fonts for a clean, professional college look -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- =================== NAVIGATION BAR =================== -->
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="brand">
+      <div class="brand-logo-circle">🎓</div>
+      <div class="brand-text">
+        <span class="brand-title">{{ college_name }}</span>
+        <span class="brand-subtitle">Enquiry Chatbot</span>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#help-topics">Topics</a>
+      <a href="#contact-footer">Contact</a>
+      <a href="{{ url_for('chatbot_page') }}" class="nav-cta">Chat Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- =================== HERO SECTION =================== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">24 / 7 &nbsp;•&nbsp; INSTANT ANSWERS</span>
+      <h1>Welcome to <span class="highlight">{{ college_name }}</span></h1>
+      <p class="hero-description">
+        Ask anything about admissions, courses, fees, hostel life, placements, exams,
+        and campus facilities &mdash; and get an instant answer from our AI Enquiry Chatbot.
+      </p>
+      <a href="{{ url_for('chatbot_page') }}" class="btn-primary">
+        Start Chat
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="chat-preview-card">
+        <div class="chat-preview-strip"></div>
+        <div class="chat-preview-header">
+          <div class="bot-avatar-circle">🤖</div>
+          <div>
+            <p class="preview-name">College Assistant</p>
+            <p class="preview-status">Online now</p>
+          </div>
+        </div>
+        <div class="chat-preview-body">
+          <div class="preview-bubble bot">What is the fee structure?</div>
+          <div class="preview-bubble user">Around ₹80,000 - ₹1,50,000 / year</div>
+          <div class="preview-bubble bot">Any hostel facilities?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== HELP TOPICS SECTION =================== -->
+<section class="help-topics" id="help-topics">
+  <h2>Ask about anything campus-related</h2>
+  <p class="section-subtitle">Trained on 60+ real questions students and parents ask most.</p>
+
+  <div class="topics-grid">
+    <div class="topic-card">🎓 Admissions &amp; Eligibility</div>
+    <div class="topic-card">📚 Courses &amp; Departments</div>
+    <div class="topic-card">💰 Fees &amp; Scholarships</div>
+    <div class="topic-card">💼 Placements &amp; Internships</div>
+    <div class="topic-card">🏠 Hostel &amp; Transport</div>
+    <div class="topic-card">📖 Library, Faculty &amp; Exams</div>
+    <div class="topic-card">⚽ Sports &amp; Clubs</div>
+    <div class="topic-card">🕒 Timings, Attendance &amp; Holidays</div>
+  </div>
+</section>
+
+<!-- =================== ABOUT SECTION =================== -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <h2>Why use the Enquiry Chatbot?</h2>
+    <div class="about-grid">
+      <div class="about-item"><h3>Instant</h3><p>No waiting on hold or for office hours &mdash; get answers right away.</p></div>
+      <div class="about-item"><h3>Always Available</h3><p>Open the chat anytime, from your phone or laptop, day or night.</p></div>
+      <div class="about-item"><h3>Accurate</h3><p>Answers are drawn directly from verified college information.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer class="footer" id="contact-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="brand"><div class="brand-logo-circle small">🎓</div><span class="brand-title">{{ college_name }}</span></div>
+      <p>Basavapalem Village, Bhogapuram Mandal, Vizianagaram, Andhra Pradesh 531162</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Chairman: +91-98495-55252</p>
+      <p>Office: +91-96037-66552</p>
+      <p>Email: hq.principal@gmail.com</p>
+    </div>
+    <div class="footer-col">
+      <h4>Office Hours</h4>
+      <p>Mon &ndash; Sat, 9:00 AM &ndash; 9:00 PM</p>
+    </div>
+  </div>
+  <p class="footer-bottom">&copy; 2026 {{ college_name }}. Built for demonstration purposes.</p>
+</footer>
+
+</body>
+</html>
